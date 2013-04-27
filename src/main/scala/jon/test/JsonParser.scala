@@ -36,7 +36,7 @@ class JsonParser(config: Config) {
   def retrieveChangesForBuild(str: String): Option[Seq[Change]] = {
 
     // helper - this turns each map in the item list into a Change object
-    def parseChange(c: JsonMap): Seq[Change] = {
+    def parseChanges(c: JsonMap): Seq[Change] = {
 
       // helper - to put the change type in the format gource wants
       def parseType(x: String): String = x match {
@@ -54,11 +54,11 @@ class JsonParser(config: Config) {
     } // end helper
 
     // algo starts here ...
-    // work through all the items in the change set - the item map contains the commits
+    // work through all the items in the change set - the item list contains the commits
     buildJson(str) map { json =>
       val items = json("changeSet").asInstanceOf[JsonMap]("items").asInstanceOf[JsonArray]
       items.foldLeft(Seq[Change]()) {
-        (r: Seq[Change], c: JsonMap) => r ++ parseChange(c) //keep in order, add newer ones on the end
+        (r: Seq[Change], c: JsonMap) => r ++ parseChanges(c) //keep in order, add newer ones on the end
       }
     }
   }
