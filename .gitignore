@@ -1,0 +1,8 @@
+project/project
+project/target
+scopt_2.10-2.1.0.jar
+target
+*.sc
+akka-actor_2.10-2.1.2.jar
+config-1.0.0.jar
+grocery
