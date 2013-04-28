@@ -39,7 +39,7 @@ object JsonParser {
 }
 
 /**
- * this class understands how to get the info we need to tell gource about all of the various calls into the json api provided by hudson
+ * this class understands how to get the info we need to tell gource about from all of the various calls into the json api provided by hudson
  */
 class JsonParser(config: Config) {
 
