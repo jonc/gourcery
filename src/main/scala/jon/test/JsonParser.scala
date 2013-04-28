@@ -35,7 +35,7 @@ class JsonParser(config: Config) {
    */
   def retrieveChangesForBuild(str: String): Option[Seq[Change]] = {
 
-    // helper - this turns each map in the item list into a Change object
+    // helper - this turns each file in a single commit into a Change object
     def parseChanges(c: JsonMap): Seq[Change] = {
 
       // helper - to put the change type in the format gource wants
